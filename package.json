@@ -10,7 +10,7 @@
     "type": "portfolio"
   },
   "scripts": {
-    "serve": "vue-cli-service serve --opwn",
+    "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build --dest docs",
     "lint": "vue-cli-service lint"
   },
