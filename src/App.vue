@@ -19,6 +19,10 @@ export default {
   components: {
     AppHeader,
     AppFooter
+  },
+
+  beforeCreate() {
+    this.$store.dispatch('stocks/fetchStocks')
   }
 }
 </script>
