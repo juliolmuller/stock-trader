@@ -9,8 +9,16 @@
     </v-card>
     <v-card>
       <v-container fill-height>
-        <v-text-field type="number" label="Quantidade" />
-        <v-btn class="green darken-3 white--text">Comprar</v-btn>
+        <v-text-field
+          type="number"
+          label="Quantidade"
+          v-model.number="quantity"
+        />
+        <v-btn
+          class="green darken-3 white--text"
+          :disabled="quantity <= 0 || !Number.isInteger(quantity)"
+          @click="buyStock"
+        >Comprar</v-btn>
       </v-container>
     </v-card>
   </v-flex>
@@ -19,10 +27,28 @@
 <script>
 export default {
 
+  data: () => ({
+    quantity: 0
+  }),
+
   props: {
     stock: {
       type: Object,
       required: true
+    }
+  },
+
+  methods: {
+    buyStock() {
+      const order = {
+        stockId: this.stock.id,
+        stockPrice: this.stock.price,
+        stockQuantity: this.quantity
+      }
+      // TODO: dispatch request for persistance
+      console.log(order)
+
+      this.quantity = 0
     }
   }
 }
