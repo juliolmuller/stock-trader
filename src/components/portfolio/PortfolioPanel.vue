@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import PortfolioCard from './PortfolioCard'
 
 export default {
@@ -17,14 +18,7 @@ export default {
     PortfolioCard
   },
 
-  data() {
-    return {
-      portfolioStocks: [
-        { id: 'GOO2', company: 'Google', price: 11.20, quantity: 35 },
-        { id: 'XOM1', company: 'ExxonMobil', price: 54.32, quantity: 20 }
-      ]
-    }
-  }
+  computed: mapGetters('portfolio', ['portfolioStocks'])
 }
 </script>
 
