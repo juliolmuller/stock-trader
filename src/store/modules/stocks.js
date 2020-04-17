@@ -30,10 +30,6 @@ export default {
         { id: 'FBK1', company: 'Facebook', price: 5.51 },
         { id: 'XOM1', company: 'ExxonMobil', price: 54.32 }
       ]), 2000)
-    },
-    buyStocks({ commit }, order) {
-      // TODO: add mutation
-      commit('', order)
     }
   }
 }

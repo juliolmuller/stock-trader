@@ -45,9 +45,7 @@ export default {
         stockPrice: this.stock.price,
         stockQuantity: this.quantity
       }
-      // TODO: dispatch request for persistance
-      console.log(order)
-
+      this.$store.dispatch('buyStocks', order)
       this.quantity = 0
     }
   }

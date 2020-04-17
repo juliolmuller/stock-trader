@@ -11,10 +11,7 @@ export default {
 
   state: {
     funds: 10000,
-    portfolio: [
-      { id: 'GOO2', quantity: 35 },
-      { id: 'XOM1', quantity: 20 }
-    ]
+    portfolio: []
   },
 
   getters: {
@@ -68,9 +65,19 @@ export default {
       const data = JSON.parse(localStorage.getItem(STORAGE))
       data ? commit('setData', data) : dispatch('saveData')
     },
-    sellStocks({ commit, dispatch }, order) {
-      commit('sellStocks', order)
-      dispatch('saveData')
+    buyStocks: {
+      root: true,
+      handler({ commit, dispatch }, order) {
+        commit('buyStocks', order)
+        dispatch('saveData')
+      }
+    },
+    sellStocks: {
+      root: true,
+      handler({ commit, dispatch }, order) {
+        commit('sellStocks', order)
+        dispatch('saveData')
+      }
     }
   }
 }
