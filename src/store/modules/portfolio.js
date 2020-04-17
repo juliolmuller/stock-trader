@@ -10,7 +10,7 @@ export default {
   namespaced: true,
 
   state: {
-    funds: 10000,
+    funds: 0,
     portfolio: []
   },
 
@@ -26,6 +26,9 @@ export default {
           quantity: p.quantity
         }
       })
+    },
+    hasChanges() {
+      return !(localStorage.getItem(STORAGE) === sessionStorage.getItem(STORAGE))
     }
   },
 
@@ -33,6 +36,10 @@ export default {
     setData(state, data) {
       state.funds = data.funds
       state.portfolio = data.portfolio
+    },
+    resetData(state) {
+      state.funds = 10000
+      state.portfolio = []
     },
     buyStocks(state, order) {
       const stock = state.portfolio.find(p => p.id === order.stockId)
@@ -58,25 +65,32 @@ export default {
   },
 
   actions: {
-    saveData({ state }) {
-      localStorage.setItem(STORAGE, JSON.stringify(state))
+    restoreData({ commit }) {
+      const strData = sessionStorage.getItem(STORAGE) || localStorage.getItem(STORAGE)
+      strData ? commit('setData', JSON.parse(strData)) : commit('resetData')
     },
-    restoreData({ commit, dispatch }) {
-      const data = JSON.parse(localStorage.getItem(STORAGE))
-      data ? commit('setData', data) : dispatch('saveData')
+    stageChanges({ state }) {
+      sessionStorage.setItem(STORAGE, JSON.stringify(state))
+    },
+    discardChanges({ commit, dispatch }) {
+      const strData = localStorage.getItem(STORAGE)
+      strData ? commit('setData', JSON.parse(strData)) : commit('resetData')
+    },
+    commitChanges({ state }) {
+      localStorage.setItem(STORAGE, sessionStorage.getItem(STORAGE))
     },
     buyStocks: {
       root: true,
       handler({ commit, dispatch }, order) {
         commit('buyStocks', order)
-        dispatch('saveData')
+        dispatch('stageChanges')
       }
     },
     sellStocks: {
       root: true,
       handler({ commit, dispatch }, order) {
         commit('sellStocks', order)
-        dispatch('saveData')
+        dispatch('stageChanges')
       }
     }
   }

@@ -26,16 +26,22 @@
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
           <v-btn text v-on="on">
-            <v-icon>mdi-content-save-move</v-icon>
-            <span>Salvar ou Carregar</span>
+            <span>Salvar Transações</span>
+            <v-icon>mdi-menu-down</v-icon>
           </v-btn>
         </template>
         <v-list>
           <v-list-item>
-            <v-list-item-title>Salvar Dados</v-list-item-title>
+            <v-list-item-title @click="commitChanges">
+              <v-icon>mdi-content-save</v-icon>
+              Salvar
+            </v-list-item-title>
           </v-list-item>
           <v-list-item>
-            <v-list-item-title>Carregar Dados</v-list-item-title>
+            <v-list-item-title @click="discardChanges">
+              <v-icon>mdi-undo-variant</v-icon>
+              Descartar
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
@@ -45,6 +51,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
 
   data() {
@@ -55,7 +63,9 @@ export default {
         { name: 'stocks', label: 'Ações' }
       ]
     }
-  }
+  },
+
+  methods: mapActions('portfolio', ['commitChanges', 'discardChanges'])
 }
 </script>
 
@@ -71,5 +81,8 @@ export default {
 }
 .v-toolbar__title > span:last-child {
   font-weight: 300 !important;
+}
+.v-list-item__title:hover, .v-list-item__title:active {
+  cursor: pointer;
 }
 </style>
