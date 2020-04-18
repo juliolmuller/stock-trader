@@ -13,6 +13,7 @@
         v-for="route in navigation"
         :key="route.name"
         :to="{ name: route.name }"
+        exact
       >{{ route.label }}</v-btn>
     </v-toolbar-items>
 
