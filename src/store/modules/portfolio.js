@@ -15,9 +15,6 @@ export default {
   },
 
   getters: {
-    funds(state) {
-      return state.funds
-    },
     portfolioStocks(state, _getters, _rootState, rootGetters) {
       return state.portfolio.map(p => {
         const stock = rootGetters['stocks/stocks'].find(s => s.id === p.id)
@@ -26,6 +23,17 @@ export default {
           quantity: p.quantity
         }
       })
+    },
+    appliedFunds(_state, getters) {
+      return getters.portfolioStocks.reduce((total, stock) => {
+        return total + stock.price * stock.quantity
+      }, 0)
+    },
+    unappliedFunds(state) {
+      return state.funds
+    },
+    totalFunds(_state, getters) {
+      return getters.appliedFunds + getters.unappliedFunds
     },
     hasChanges(state) {
       const session = sessionStorage.getItem(STORAGE)
