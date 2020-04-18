@@ -27,8 +27,10 @@ export default {
         }
       })
     },
-    hasChanges() {
-      return !(localStorage.getItem(STORAGE) === sessionStorage.getItem(STORAGE))
+    hasChanges(state) {
+      const session = sessionStorage.getItem(STORAGE)
+      const local = localStorage.getItem(STORAGE)
+      return session && local !== JSON.stringify(state)
     }
   },
 
@@ -36,6 +38,7 @@ export default {
     setData(state, data) {
       state.funds = data.funds
       state.portfolio = data.portfolio
+      sessionStorage.setItem(STORAGE, JSON.stringify(state))
     },
     resetData(state) {
       state.funds = 10000
