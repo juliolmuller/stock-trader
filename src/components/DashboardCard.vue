@@ -5,7 +5,7 @@
         <span class="display-1">{{ info.title }}</span>
         <div class="d-flex justify-center align-center mt-4">
           <span class="headline">R$</span>
-          <span class="display-4">{{ Number(info.value).toFixed(2) }}</span>
+          <span class="display-4">{{ info.value | number(2) }}</span>
         </div>
       </v-card-text>
       <v-card-actions v-if="info.route" class="pb-4">

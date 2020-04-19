@@ -25,7 +25,7 @@
           Fundos para investir:
         </span>
         <span class="title text--grey font-weight-bold ml-3 mr-5">
-          R$ {{ $store.getters['portfolio/unappliedFunds'] }}
+          R$ {{ $store.getters['portfolio/unappliedFunds'] | number(2) }}
         </span>
       </v-layout>
       <v-menu offset-y>

@@ -4,7 +4,7 @@
       <v-card-title class="d-flex justify-space-between">
         <h3 class="order-2">{{ stock.company }}</h3>
         <span class="order-1">{{ stock.id }}</span>
-        <span class="order-3">${{ stock.price }} por ação</span>
+        <span class="order-3">${{ stock.price | number(2) }} por ação</span>
       </v-card-title>
     </v-card>
     <v-card>
