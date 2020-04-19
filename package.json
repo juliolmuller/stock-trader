@@ -53,8 +53,9 @@
       "parser": "babel-eslint"
     },
     "rules": {
-      "space-before-function-paren": "off",
-      "comma-dangle": ["error", "always-multiline"]
+      "comma-dangle": ["error", "always-multiline"],
+      "no-console": "warn",
+      "space-before-function-paren": "off"
     }
   },
   "browserslist": [
