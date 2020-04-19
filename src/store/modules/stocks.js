@@ -29,7 +29,19 @@ export default {
 
   actions: {
     async fetchStocks({ commit }) {
-      const response = await axios(API_URL)
+      const response = await axios(API_URL, {
+        transformResponse: [
+          ...axios.defaults.transformResponse,
+          (data) => data.map(stock => {
+            Object.keys(stock).forEach(key => {
+              if (!isNaN(stock[key])) {
+                stock[key] = Number(stock[key])
+              }
+            })
+            return stock
+          }),
+        ],
+      })
       commit('setStocks', response.data)
     },
   },
