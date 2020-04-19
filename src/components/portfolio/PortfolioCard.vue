@@ -12,11 +12,12 @@
         <v-text-field
           type="number"
           :label="`Quantidade (max. ${stock.quantity})`"
+          :error="quantity !== 0 && !canSell"
           v-model.number="quantity"
         />
         <v-btn
           class="blue darken-3 white--text"
-          :disabled="quantity <= 0 || quantity > stock.quantity || !Number.isInteger(quantity)"
+          :disabled="!canSell"
           @click="sellStock"
         >Vender</v-btn>
       </v-container>
@@ -30,6 +31,14 @@ export default {
   data: () => ({
     quantity: 0
   }),
+
+  computed: {
+    canSell() {
+      return this.quantity > 0 &&
+        Number.isInteger(this.quantity) &&
+        this.quantity <= this.stock.quantity
+    }
+  },
 
   props: {
     stock: {

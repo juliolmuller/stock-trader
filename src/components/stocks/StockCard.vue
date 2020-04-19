@@ -12,11 +12,12 @@
         <v-text-field
           type="number"
           label="Quantidade"
+          :error="quantity !== 0 && !canBuy"
           v-model.number="quantity"
         />
         <v-btn
           class="green darken-3 white--text"
-          :disabled="quantity <= 0 || !Number.isInteger(quantity)"
+          :disabled="!canBuy"
           @click="buyStock"
         >Comprar</v-btn>
       </v-container>
@@ -30,6 +31,17 @@ export default {
   data: () => ({
     quantity: 0
   }),
+
+  computed: {
+    availableFunds() {
+      return this.$store.getters['portfolio/unappliedFunds']
+    },
+    canBuy() {
+      return this.quantity > 0 &&
+        Number.isInteger(this.quantity) &&
+        this.quantity * this.stock.price <= this.availableFunds
+    }
+  },
 
   props: {
     stock: {
