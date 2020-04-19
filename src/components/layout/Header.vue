@@ -20,10 +20,14 @@
     <v-spacer />
 
     <v-toolbar-items>
-      <v-btn text>
-        <v-icon>mdi-calendar-check</v-icon>
-        <span>Finalizar Dia</span>
-      </v-btn>
+      <v-layout align-center class="font-weight-bold">
+        <span class="subtitle-1 text--grey text--darken-2">
+          Fundos para investir:
+        </span>
+        <span class="title text--grey font-weight-bold ml-3 mr-5">
+          R$ {{ $store.getters['portfolio/unappliedFunds'] }}
+        </span>
+      </v-layout>
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
           <v-btn text v-on="on">
