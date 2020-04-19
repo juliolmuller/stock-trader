@@ -5,7 +5,7 @@ export default {
 
   state: {
     funds: 0,
-    portfolio: []
+    portfolio: [],
   },
 
   getters: {
@@ -14,7 +14,7 @@ export default {
         const stock = rootGetters['stocks/stocks'].find(s => s.id === p.id)
         return {
           ...stock,
-          quantity: p.quantity
+          quantity: p.quantity,
         }
       })
     },
@@ -28,7 +28,7 @@ export default {
     },
     totalFunds(_state, getters) {
       return getters.appliedFunds + getters.unappliedFunds
-    }
+    },
   },
 
   mutations: {
@@ -43,7 +43,7 @@ export default {
       } else {
         state.portfolio.push({
           id: order.stockId,
-          quantity: order.stockQuantity
+          quantity: order.stockQuantity,
         })
       }
       state.funds -= order.stockQuantity * order.stockPrice
@@ -56,14 +56,14 @@ export default {
         state.portfolio.splice(state.portfolio.indexOf(stock), 1)
       }
       state.funds += order.stockQuantity * order.stockPrice
-    }
+    },
   },
 
   actions: {
     resetData({ commit, state }) {
       commit('setData', {
         funds: 10000,
-        portfolio: []
+        portfolio: [],
       })
       commit('storage/stageChanges', state, { root: true })
       commit('storage/commitChanges', null, { root: true })
@@ -73,14 +73,14 @@ export default {
       handler({ commit, dispatch, state }, order) {
         commit('buyStocks', order)
         commit('storage/stageChanges', state, { root: true })
-      }
+      },
     },
     sellStocks: {
       root: true,
       handler({ commit, dispatch, state }, order) {
         commit('sellStocks', order)
         commit('storage/stageChanges', state, { root: true })
-      }
-    }
-  }
+      },
+    },
+  },
 }

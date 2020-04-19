@@ -52,7 +52,10 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "space-before-function-paren": "off",
+      "comma-dangle": ["error", "always-multiline"]
+    }
   },
   "browserslist": [
     "> 1%",

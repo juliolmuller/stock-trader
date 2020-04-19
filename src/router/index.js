@@ -12,22 +12,22 @@ export default new VueRouter({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
     },
     {
       path: '/portfolio',
       name: 'portfolio',
-      component: Portfolio
+      component: Portfolio,
     },
     {
       path: '/stocks',
       name: 'stocks',
-      component: Stocks
+      component: Stocks,
     },
     {
       // fallback route
       path: '*',
-      redirect: '/'
-    }
-  ]
+      redirect: '/',
+    },
+  ],
 })

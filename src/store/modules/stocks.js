@@ -12,25 +12,25 @@ export default {
   namespaced: true,
 
   state: {
-    stocks: []
+    stocks: [],
   },
 
   getters: {
     stocks(state) {
       return state.stocks
-    }
+    },
   },
 
   mutations: {
     setStocks(state, stocks) {
       state.stocks = stocks
-    }
+    },
   },
 
   actions: {
     async fetchStocks({ commit }) {
       const response = await axios(API_URL)
       commit('setStocks', response.data)
-    }
-  }
+    },
+  },
 }

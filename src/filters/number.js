@@ -11,6 +11,6 @@ export default function(value, fractionDigits = 1) {
     ? value
     : Intl.NumberFormat('pt-BR', {
       maximumFractionDigits: fractionDigits,
-      minimumFractionDigits: fractionDigits
+      minimumFractionDigits: fractionDigits,
     }).format(value)
 }

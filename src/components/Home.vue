@@ -22,23 +22,23 @@ export default {
   components: {
     AlertMarketIsClosed,
     AlertUnsavedChanges,
-    DashboardCard
+    DashboardCard,
   },
 
   computed: {
     ...mapGetters('portfolio', [
       'appliedFunds',
       'unappliedFunds',
-      'totalFunds'
+      'totalFunds',
     ]),
     cards() {
       return [
         { title: 'Valor em ações', value: this.appliedFunds, route: { name: 'portfolio', label: 'Ir para carteira' } },
         { title: 'Valor não investido', value: this.unappliedFunds, route: { name: 'stocks', label: 'Comprar ações' } },
-        { title: 'Fundos totais', value: this.totalFunds }
+        { title: 'Fundos totais', value: this.totalFunds },
       ]
-    }
-  }
+    },
+  },
 }
 </script>
 

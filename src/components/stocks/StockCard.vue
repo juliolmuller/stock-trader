@@ -29,7 +29,7 @@
 export default {
 
   data: () => ({
-    quantity: 0
+    quantity: 0,
   }),
 
   computed: {
@@ -40,14 +40,14 @@ export default {
       return this.quantity > 0 &&
         Number.isInteger(this.quantity) &&
         this.quantity * this.stock.price <= this.availableFunds
-    }
+    },
   },
 
   props: {
     stock: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
 
   methods: {
@@ -55,12 +55,12 @@ export default {
       const order = {
         stockId: this.stock.id,
         stockPrice: this.stock.price,
-        stockQuantity: this.quantity
+        stockQuantity: this.quantity,
       }
       this.$store.dispatch('buyStocks', order)
       this.quantity = 0
-    }
-  }
+    },
+  },
 }
 </script>
 

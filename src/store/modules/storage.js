@@ -11,7 +11,7 @@ export default {
 
   state: {
     persitant: {},
-    temporary: {}
+    temporary: {},
   },
 
   getters: {
@@ -19,7 +19,7 @@ export default {
       const local = JSON.stringify(state.persitant)
       const session = JSON.stringify(state.temporary)
       return session !== local
-    }
+    },
   },
 
   mutations: {
@@ -34,7 +34,7 @@ export default {
     commitChanges(state) {
       state.persitant = { ...state.temporary }
       localStorage.setItem(STORAGE, sessionStorage.getItem(STORAGE))
-    }
+    },
   },
 
   actions: {
@@ -52,6 +52,6 @@ export default {
       const session = state.persitant
       commit('stageChanges', session)
       commit('portfolio/setData', session, { root: true })
-    }
-  }
+    },
+  },
 }

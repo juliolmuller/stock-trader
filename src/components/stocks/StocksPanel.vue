@@ -15,10 +15,10 @@ import StockCard from './StockCard'
 export default {
 
   components: {
-    StockCard
+    StockCard,
   },
 
-  computed: mapGetters('stocks', ['stocks'])
+  computed: mapGetters('stocks', ['stocks']),
 }
 </script>
 

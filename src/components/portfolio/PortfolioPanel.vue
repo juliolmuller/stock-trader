@@ -15,10 +15,10 @@ import PortfolioCard from './PortfolioCard'
 export default {
 
   components: {
-    PortfolioCard
+    PortfolioCard,
   },
 
-  computed: mapGetters('portfolio', ['portfolioStocks'])
+  computed: mapGetters('portfolio', ['portfolioStocks']),
 }
 </script>
 

@@ -65,15 +65,15 @@ export default {
       navigation: [
         { name: 'home', label: 'Home' },
         { name: 'portfolio', label: 'Portfólio' },
-        { name: 'stocks', label: 'Ações' }
-      ]
+        { name: 'stocks', label: 'Ações' },
+      ],
     }
   },
 
   methods: {
     ...mapMutations('storage', ['commitChanges']),
-    ...mapActions('storage', ['discardChanges'])
-  }
+    ...mapActions('storage', ['discardChanges']),
+  },
 }
 </script>
 

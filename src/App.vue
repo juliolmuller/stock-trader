@@ -18,13 +18,13 @@ export default {
 
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
   },
 
   beforeCreate() {
     this.$store.dispatch('stocks/fetchStocks')
     this.$store.dispatch('storage/restoreData')
-  }
+  },
 }
 </script>
 

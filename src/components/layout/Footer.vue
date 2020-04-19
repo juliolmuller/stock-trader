@@ -25,11 +25,11 @@ export default {
         {
           href: 'https://github.com/juliolmuller/stock-trader',
           tooltip: 'Veja no GitHub',
-          name: 'mdi-github'
-        }
-      ]
+          name: 'mdi-github',
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 
