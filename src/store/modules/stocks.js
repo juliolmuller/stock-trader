@@ -1,3 +1,11 @@
+import axios from 'axios'
+
+/**
+ * URL for fetching resources
+ *
+ * @constant {String}
+ */
+const API_URL = 'https://sheet.best/api/sheets/c762c72f-1f4b-43be-a11e-8482d0a4820c'
 
 export default {
 
@@ -20,16 +28,9 @@ export default {
   },
 
   actions: {
-    fetchStocks({ commit }) {
-      // TODO: implement back-end fetching
-      setTimeout(() => commit('setStocks', [
-        // TODO: remove hard-coded data
-        { id: 'BMW3', company: 'NMW', price: 20.57 },
-        { id: 'AMZ4', company: 'Amazon', price: 8.87 },
-        { id: 'GOO2', company: 'Google', price: 11.20 },
-        { id: 'FBK1', company: 'Facebook', price: 5.51 },
-        { id: 'XOM1', company: 'ExxonMobil', price: 54.32 }
-      ]), 2000)
+    async fetchStocks({ commit }) {
+      const response = await axios(API_URL)
+      commit('setStocks', response.data)
     }
   }
 }
