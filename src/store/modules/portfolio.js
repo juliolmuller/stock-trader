@@ -1,10 +1,4 @@
 
-/**
- * Storage name
- * @constant {String}
- */
-const STORAGE = 'my_data'
-
 export default {
 
   namespaced: true,
@@ -34,11 +28,6 @@ export default {
     },
     totalFunds(_state, getters) {
       return getters.appliedFunds + getters.unappliedFunds
-    },
-    hasChanges(state) {
-      const session = sessionStorage.getItem(STORAGE)
-      const local = localStorage.getItem(STORAGE)
-      return session && local !== JSON.stringify(state)
     }
   },
 
@@ -46,11 +35,6 @@ export default {
     setData(state, data) {
       state.funds = data.funds
       state.portfolio = data.portfolio
-      sessionStorage.setItem(STORAGE, JSON.stringify(state))
-    },
-    resetData(state) {
-      state.funds = 10000
-      state.portfolio = []
     },
     buyStocks(state, order) {
       const stock = state.portfolio.find(p => p.id === order.stockId)
@@ -76,32 +60,26 @@ export default {
   },
 
   actions: {
-    restoreData({ commit }) {
-      const strData = sessionStorage.getItem(STORAGE) || localStorage.getItem(STORAGE)
-      strData ? commit('setData', JSON.parse(strData)) : commit('resetData')
-    },
-    stageChanges({ state }) {
-      sessionStorage.setItem(STORAGE, JSON.stringify(state))
-    },
-    discardChanges({ commit, dispatch }) {
-      const strData = localStorage.getItem(STORAGE)
-      strData ? commit('setData', JSON.parse(strData)) : commit('resetData')
-    },
-    commitChanges({ state }) {
-      localStorage.setItem(STORAGE, sessionStorage.getItem(STORAGE))
+    resetData({ commit, state }) {
+      commit('setData', {
+        funds: 10000,
+        portfolio: []
+      })
+      commit('storage/stageChanges', state, { root: true })
+      commit('storage/commitChanges', null, { root: true })
     },
     buyStocks: {
       root: true,
-      handler({ commit, dispatch }, order) {
+      handler({ commit, dispatch, state }, order) {
         commit('buyStocks', order)
-        dispatch('stageChanges')
+        commit('storage/stageChanges', state, { root: true })
       }
     },
     sellStocks: {
       root: true,
-      handler({ commit, dispatch }, order) {
+      handler({ commit, dispatch, state }, order) {
         commit('sellStocks', order)
-        dispatch('stageChanges')
+        commit('storage/stageChanges', state, { root: true })
       }
     }
   }

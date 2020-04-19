@@ -18,7 +18,7 @@ import { mapGetters } from 'vuex'
 
 export default {
 
-  computed: mapGetters('portfolio', ['hasChanges'])
+  computed: mapGetters('storage', ['hasChanges'])
 }
 </script>
 

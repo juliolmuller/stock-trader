@@ -23,7 +23,7 @@ export default {
 
   beforeCreate() {
     this.$store.dispatch('stocks/fetchStocks')
-    this.$store.dispatch('portfolio/restoreData')
+    this.$store.dispatch('storage/restoreData')
   }
 }
 </script>
