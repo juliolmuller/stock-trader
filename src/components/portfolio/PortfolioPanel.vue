@@ -5,7 +5,11 @@
     </h1>
     <alert-unsaved-changes />
     <alert-market-is-closed />
-    <v-layout row wrap>
+    <span v-if="!portfolioStocks.length" class="d-block text-center title font-weight-regular">
+      Você não possui nenhum ativo.
+      <router-link :to="{ name: 'stocks' }"><a>Comprar ações</a></router-link>.
+    </span>
+    <v-layout row wrap v-else>
       <PortfolioCard
         v-for="stock in portfolioStocks"
         :key="stock.id"
