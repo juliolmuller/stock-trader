@@ -1,13 +1,23 @@
 <template>
   <div>
-    <h1 class="display-1 font-weight-bold mt-8 mb-6">
-      Mercado de Ações
-    </h1>
+    <div class="d-flex justify-space-between align-center-end mt-8">
+      <h1 class="display-1 font-weight-bold">
+        Mercado de Ações
+      </h1>
+      <v-spacer />
+      <v-text-field
+        style="max-width:300px;"
+        append-icon="mdi-magnify"
+        placeholder="Procurar ativo..."
+        filled rounded dense
+        v-model="search"
+      />
+    </div>
     <alert-unsaved-changes />
     <alert-market-is-closed />
     <v-layout row wrap>
       <StockCard
-        v-for="stock in stocks"
+        v-for="stock in searchResult"
         :key="stock.id"
         :stock="stock"
       />
@@ -29,7 +39,19 @@ export default {
     StockCard,
   },
 
-  computed: mapGetters('stocks', ['stocks']),
+  data: () => ({
+    search: '',
+  }),
+
+  computed: {
+    ...mapGetters('stocks', ['stocks']),
+    searchResult() {
+      if (!this.search) {
+        return this.stocks
+      }
+      return this.stocks.filter(stock => JSON.stringify(stock).match(new RegExp(this.search, 'i')))
+    },
+  },
 }
 </script>
 
