@@ -24,8 +24,9 @@ export default {
   },
 
   beforeCreate() {
-    this.$store.dispatch('stocks/fetchStocks')
     this.$store.dispatch('storage/restoreData')
+    this.$store.dispatch('stocks/fetchStocks')
+    setInterval(this.$store.dispatch, 5 * 60 * 1000, 'stocks/fetchStocks')
   },
 }
 </script>
