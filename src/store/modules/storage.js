@@ -49,9 +49,11 @@ export default {
       }
     },
     discardChanges({ commit, state }) {
-      const session = state.persitant
-      commit('stageChanges', session)
-      commit('portfolio/setData', session, { root: true })
+      if (confirm('Esse é um comando irreversível. Deseja continuar?')) {
+        const session = state.persitant
+        commit('stageChanges', session)
+        commit('portfolio/setData', session, { root: true })
+      }
     },
   },
 }
