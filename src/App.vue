@@ -3,7 +3,7 @@
     <app-header />
     <v-content>
       <v-container>
-        <transition name="slide" mode="out-in">
+        <transition name="slide" mode="out-in" appear>
           <router-view />
         </transition>
       </v-container>

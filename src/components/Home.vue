@@ -1,11 +1,11 @@
 <template>
   <div>
-    <h1 class="display-3 font-weight-light mt-8 mb-4">
+    <h1 class="display-3 font-weight-light mt-8 mb-6">
       Brinque de Negociar Ações em Tempo Real
     </h1>
     <alert-unsaved-changes />
     <alert-market-is-closed />
-    <v-layout row wrap class="mt-8 strat">
+    <v-layout row wrap class="mt-12">
       <dashboard-card v-for="card in cards" :key="card.title" :info="card" />
     </v-layout>
   </div>

@@ -6,7 +6,7 @@
     icon="mdi-information-outline"
     prominent
     transition="scale-transition"
-    appear
+    :value="false"
   >
     As negociações na Volsa de Valores estão fechadas.
     Nenhuma alteração poderá ser salva neste período.
