@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1 class="display-1 font-weight-bold mt-8 mb-6">
-      Sua Carteira de Ações
+      Mercado de Ações
     </h1>
     <alert-unsaved-changes />
     <alert-market-is-closed />
