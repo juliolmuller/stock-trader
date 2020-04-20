@@ -1,10 +1,9 @@
 <template>
   <v-alert
-    class="headline"
+    class="subtitle-1"
     color="info"
     dark
     icon="mdi-information-outline"
-    prominent
     transition="scale-transition"
     :value="false"
   >

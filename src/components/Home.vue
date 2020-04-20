@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="display-3 font-weight-light mt-8 mb-6">
+    <h1 class="display-2 text-center font-weight-bold mt-8 mb-6">
       Brinque de Negociar Ações em Tempo Real
     </h1>
     <alert-unsaved-changes />
@@ -43,7 +43,4 @@ export default {
 </script>
 
 <style scoped>
-.text-upper {
-  text-transform: uppercase;
-}
 </style>

@@ -2,9 +2,9 @@
   <v-flex class="pr-5 pb-5" xs12 md6 lg4>
     <v-card class="green darken-3 white--text">
       <v-card-title class="d-flex justify-space-between">
-        <h3 class="order-2">{{ stock.company }}</h3>
-        <span class="order-1">{{ stock.id }}</span>
-        <span class="order-3">${{ stock.price | number(2) }} por ação</span>
+        <h3 class="subtitle-1 order-2">{{ stock.company }}</h3>
+        <span class="subtitle-1 order-1">{{ stock.id }}</span>
+        <span class="subtitle-1 order-3">R${{ stock.price | number(2) }}/ação</span>
       </v-card-title>
     </v-card>
     <v-card>

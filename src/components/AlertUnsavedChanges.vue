@@ -1,10 +1,9 @@
 <template>
   <v-alert
-    class="headline"
+    class="subtitle-1"
     color="warning"
     dark
     icon="mdi-alert-decagram-outline"
-    prominent
     transition="scale-transition"
     :value="hasChanges"
   >

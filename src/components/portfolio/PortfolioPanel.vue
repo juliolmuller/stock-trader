@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h2 class="display-2 font-weight-bold mt-8 mb-6">
+    <h1 class="display-1 font-weight-bold mt-8 mb-6">
       Sua Carteira de Ações
-    </h2>
+    </h1>
     <alert-unsaved-changes />
     <alert-market-is-closed />
     <v-layout row wrap>
