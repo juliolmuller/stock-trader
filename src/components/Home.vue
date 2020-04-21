@@ -6,7 +6,19 @@
     <alert-unsaved-changes />
     <alert-market-is-closed />
     <v-layout row wrap class="mt-12">
-      <dashboard-card v-for="card in cards" :key="card.title" :info="card" />
+      <v-img
+        v-if="$store.state.appLoading"
+        src="@/assets/loading.svg"
+        açt="Carregando"
+        max-width="10%"
+        class="mx-auto"
+      />
+      <dashboard-card
+        v-else
+        v-for="card in cards"
+        :key="card.title"
+        :info="card"
+      />
     </v-layout>
   </div>
 </template>
@@ -43,4 +55,7 @@ export default {
 </script>
 
 <style scoped>
+.v-image.mx-auto {
+  margin: 5rem;
+}
 </style>

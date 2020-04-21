@@ -43,6 +43,7 @@ export default {
         ],
       })
       commit('setStocks', response.data)
+      commit('setLoading', false, { root: true })
     },
   },
 }

@@ -16,7 +16,15 @@
     <alert-unsaved-changes />
     <alert-market-is-closed />
     <v-layout row wrap>
+      <v-img
+        v-if="$store.state.appLoading"
+        src="@/assets/loading.svg"
+        açt="Carregando"
+        max-width="10%"
+        class="mx-auto"
+      />
       <StockCard
+        v-else
         v-for="stock in searchResult"
         :key="stock.id"
         :stock="stock"
@@ -56,4 +64,7 @@ export default {
 </script>
 
 <style scoped>
+.v-image.mx-auto {
+  margin: 10rem;
+}
 </style>

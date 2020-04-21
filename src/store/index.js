@@ -8,6 +8,16 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 
+  state: {
+    appLoading: true,
+  },
+
+  mutations: {
+    setLoading(state, value) {
+      state.appLoading = Boolean(value)
+    },
+  },
+
   modules: {
     stocks,
     portfolio,
