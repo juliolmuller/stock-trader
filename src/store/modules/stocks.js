@@ -5,10 +5,9 @@ import axios from 'axios'
  *
  * @constant {String}
  */
-const API_URL = 'https://sheet.best/api/sheets/c762c72f-1f4b-43be-a11e-8482d0a4820c'
+const API_URL = 'https://sheet.best/api/sheets/38ec96b3-7c75-4639-9d81-f138f44ba2f5'
 
 export default {
-
   namespaced: true,
 
   state: {
@@ -32,14 +31,15 @@ export default {
       const response = await axios(API_URL, {
         transformResponse: [
           ...axios.defaults.transformResponse,
-          (data) => data.map(stock => {
-            Object.keys(stock).forEach(key => {
-              if (!isNaN(stock[key])) {
-                stock[key] = Number(stock[key])
-              }
-            })
-            return stock
-          }),
+          data =>
+            data.map(stock => {
+              Object.keys(stock).forEach(key => {
+                if (!isNaN(stock[key])) {
+                  stock[key] = Number(stock[key])
+                }
+              })
+              return stock
+            }),
         ],
       })
       commit('setStocks', response.data)
