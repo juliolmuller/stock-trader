@@ -1,30 +1,53 @@
-# Stock Trader
+<h1 align="center">
+  :heavy_dollar_sign: Stock Trader
+</h1>
 
-- **Developed by:** [Julio L. Muller](https://github.com/juliolmuller)
 - **Project proposed by:** [Cod3r](https://www.cod3r.com.br/)
+- **Project developed by:** [Julio L. Muller](https://github.com/juliolmuller)
 - **Released on:** Apr 20, 2020
-- **Updated on:** Jul 26, 2020
-- **Latest version:** 1.0.1
+- **Updated on:** Aug 22, 2020
+- **Latest version:** 1.0.2
 - **License:** MIT
 
-## Overview
+![Application snapshot](./src/assets/app-overview.jpg)
 
-Application developed to play with Vue.js ecosystem.
+Application developed during [Cod3r's official Vue.js course](https://www.udemy.com/course/vue-js-completo/), on Udemy, in order to simulate a Stock Exchange trading platform. Fake money, bur real shares market value fluctuations.
 
-![Application Overview](./app-overview.jpg)
+[Check out the application running!](https://juliolmuller.github.io/stock-trader/)
 
-## Run Application
+## :trophy: Lessons Learned
 
-Take a look at this application running [here](https://juliolmuller.github.io/stock-trader/).
+- Building a full scalable Vue.js application;
+- Getting tto know Vuetify :heart_eyes: (best Material Design components library)
+- How to capture real-time shares values with Google Finance;
+- How to publish a Google Sheets document publicly;
+- How to turn Google Sheets into a REST API with a service provided by [Sheets.Best](https://sheet.best/);
 
-## Project setup
+## :hammer: Technologies & Resources
 
-Run `npm install` to download all dependencies and get the project set up.
+**Frontend:**
+- Vue.js 2
+- Vuex (official Vue's state manger)
+- Vuetify 2
+- Axios (HTTP client)
 
-## Development server
+**Development:**
+- Visual Studio Code
+- Vue CLI & Node.js routines
 
-Run `npm run serve` for a dev server. Navigate to `http://localhost:8080/`. The app will automatically reload if you change any of the source files.
+## :zap: Features
 
-## Build
+- Provide the user with R$10k to spend in the platform;
+- List all available shares in [BM&FBOVESPA](http://www.b3.com.br/);
+- Allow basic operations of buying/selling shares at instant price;
+- Stores user's wallet at browser's local storage;
 
-Run `npm run build` to build the project. The build artifacts will be stored in the `docs/` directory.
+## :bell: Setting up the Environment
+
+Make sure to have **Node.js 10+** installed in your machine and its **npm** available in the command line, then use the following routines:
+
+```bash
+$ npm install   # Download dependencies
+$ npm run serve # Run development server
+$ npm run build # Build files for production
+```
