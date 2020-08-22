@@ -37,9 +37,9 @@ export default {
       return this.$store.getters['portfolio/unappliedFunds']
     },
     canBuy() {
-      return this.quantity > 0 &&
-        Number.isInteger(this.quantity) &&
-        this.quantity * this.stock.price <= this.availableFunds
+      return this.quantity > 0
+        && Number.isInteger(this.quantity)
+        && this.quantity * this.stock.price <= this.availableFunds
     },
   },
 

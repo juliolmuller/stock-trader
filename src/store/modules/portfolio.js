@@ -10,8 +10,8 @@ export default {
 
   getters: {
     portfolioStocks(state, _getters, _rootState, rootGetters) {
-      return state.portfolio.map(p => {
-        const stock = rootGetters['stocks/stocks'].find(s => s.id === p.id)
+      return state.portfolio.map((p) => {
+        const stock = rootGetters['stocks/stocks'].find((s) => s.id === p.id)
         return {
           ...stock,
           quantity: p.quantity,
@@ -19,9 +19,7 @@ export default {
       })
     },
     appliedFunds(_state, getters) {
-      return getters.portfolioStocks.reduce((total, stock) => {
-        return total + stock.price * stock.quantity
-      }, 0)
+      return getters.portfolioStocks.reduce((total, stock) => total + stock.price * stock.quantity, 0)
     },
     unappliedFunds(state) {
       return state.funds
@@ -37,7 +35,7 @@ export default {
       state.portfolio = data.portfolio
     },
     buyStocks(state, order) {
-      const stock = state.portfolio.find(p => p.id === order.stockId)
+      const stock = state.portfolio.find((p) => p.id === order.stockId)
       if (stock) {
         stock.quantity += order.stockQuantity
       } else {
@@ -49,7 +47,7 @@ export default {
       state.funds -= order.stockQuantity * order.stockPrice
     },
     sellStocks(state, order) {
-      const stock = state.portfolio.find(p => p.id === order.stockId)
+      const stock = state.portfolio.find((p) => p.id === order.stockId)
       if (stock.quantity > order.stockQuantity) {
         stock.quantity -= order.stockQuantity
       } else {
@@ -70,14 +68,14 @@ export default {
     },
     buyStocks: {
       root: true,
-      handler({ commit, dispatch, state }, order) {
+      handler({ commit, state }, order) {
         commit('buyStocks', order)
         commit('storage/stageChanges', state, { root: true })
       },
     },
     sellStocks: {
       root: true,
-      handler({ commit, dispatch, state }, order) {
+      handler({ commit, state }, order) {
         commit('sellStocks', order)
         commit('storage/stageChanges', state, { root: true })
       },

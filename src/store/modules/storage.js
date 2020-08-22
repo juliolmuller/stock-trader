@@ -10,13 +10,13 @@ export default {
   namespaced: true,
 
   state: {
-    persitant: {},
+    persistent: {},
     temporary: {},
   },
 
   getters: {
     hasChanges(state) {
-      const local = JSON.stringify(state.persitant)
+      const local = JSON.stringify(state.persistent)
       const session = JSON.stringify(state.temporary)
       return session !== local
     },
@@ -25,14 +25,14 @@ export default {
   mutations: {
     setStorages(state, { local, session }) {
       session && (state.temporary = session)
-      local && (state.persitant = local)
+      local && (state.persistent = local)
     },
     stageChanges(state, userData) {
       state.temporary = userData
       sessionStorage.setItem(STORAGE, JSON.stringify(userData))
     },
     commitChanges(state) {
-      state.persitant = { ...state.temporary }
+      state.persistent = { ...state.temporary }
       localStorage.setItem(STORAGE, sessionStorage.getItem(STORAGE))
     },
   },
@@ -50,7 +50,7 @@ export default {
     },
     discardChanges({ commit, state }) {
       if (confirm('Esse é um comando irreversível. Deseja continuar?')) {
-        const session = state.persitant
+        const session = state.persistent
         commit('stageChanges', session)
         commit('portfolio/setData', session, { root: true })
       }

@@ -57,7 +57,7 @@ export default {
       if (!this.search) {
         return this.stocks
       }
-      return this.stocks.filter(stock => JSON.stringify(stock).match(new RegExp(this.search, 'i')))
+      return this.stocks.filter((stock) => JSON.stringify(stock).match(new RegExp(this.search, 'i')))
     },
   },
 }

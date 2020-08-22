@@ -34,9 +34,9 @@ export default {
 
   computed: {
     canSell() {
-      return this.quantity > 0 &&
-        Number.isInteger(this.quantity) &&
-        this.quantity <= this.stock.quantity
+      return this.quantity > 0
+        && Number.isInteger(this.quantity)
+        && this.quantity <= this.stock.quantity
     },
   },
 

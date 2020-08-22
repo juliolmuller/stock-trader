@@ -6,8 +6,8 @@
  * @param {Number} fractionDigits
  * @return {String}
  */
-export default function(value, fractionDigits = 1) {
-  return isNaN(value)
+export default function (value, fractionDigits = 1) {
+  return Number.isNaN(value)
     ? value
     : Intl.NumberFormat('pt-BR', {
       maximumFractionDigits: fractionDigits,

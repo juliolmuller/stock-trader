@@ -19,17 +19,15 @@
 <script>
 export default {
 
-  data() {
-    return {
-      icons: [
-        {
-          href: 'https://github.com/juliolmuller/stock-trader',
-          tooltip: 'Veja no GitHub',
-          name: 'mdi-github',
-        },
-      ],
-    }
-  },
+  data: () => ({
+    icons: [
+      {
+        href: 'https://github.com/juliolmuller/stock-trader',
+        tooltip: 'Veja no GitHub',
+        name: 'mdi-github',
+      },
+    ],
+  }),
 }
 </script>
 
