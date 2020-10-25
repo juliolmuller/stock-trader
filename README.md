@@ -2,12 +2,24 @@
   :heavy_dollar_sign: Stock Trader
 </h1>
 
-- **Project proposed by:** [Cod3r](https://www.cod3r.com.br/)
-- **Project developed by:** [Julio L. Muller](https://github.com/juliolmuller)
-- **Released on:** Apr 20, 2020
-- **Updated on:** Aug 22, 2020
-- **Latest version:** 1.0.2
-- **License:** MIT
+<p align="center">
+  <a href="#trophy-lessons-learned">Lessons Learned</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#rocket-technologies--resources">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#hammer-setting-up-the-environment">Environment Setup</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#zap-features-implementations">Features</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/static/v1?labelColor=000000&color=2E7D32&label=created%20at&message=Apr%202020" alt="Creation Date" />
+
+  <img src="https://img.shields.io/github/last-commit/juliolmuller/stock-trader?label=updated%20at&labelColor=000000&color=2E7D32" alt="Update Date" />
+
+  <img src="https://img.shields.io/github/v/tag/juliolmuller/stock-trader?label=latest%20version&labelColor=000000&color=2E7D32" alt="Latest Version" />
+
+  <img src="https://img.shields.io/static/v1?labelColor=000000&color=2E7D32&label=PRs&message=welcome" alt="Pull Requests Welcome" />
+
+  <img src="https://img.shields.io/github/license/juliolmuller/stock-trader?labelColor=000000&color=2E7D32" alt="Project License" />
+</p>
 
 ![Application snapshot](./src/assets/app-overview.jpg)
 
@@ -23,7 +35,7 @@ Application developed during [Cod3r's official Vue.js course](https://www.udemy.
 - How to publish a Google Sheets document publicly;
 - How to turn Google Sheets into a REST API with a service provided by [Sheets.Best](https://sheet.best/);
 
-## :hammer: Technologies & Resources
+## :rocket: Technologies & Resources
 
 **Frontend:**
 - Vue.js 2
@@ -35,19 +47,21 @@ Application developed during [Cod3r's official Vue.js course](https://www.udemy.
 - Visual Studio Code
 - Vue CLI & Node.js routines
 
-## :zap: Features
-
-- Provide the user with R$10k to spend in the platform;
-- List all available shares in [BM&FBOVESPA](http://www.b3.com.br/);
-- Allow basic operations of buying/selling shares at instant price;
-- Stores user's wallet at browser's local storage;
-
-## :bell: Setting up the Environment
+## :hammer: Setting up the Environment
 
 Make sure to have **Node.js 10+** installed in your machine and its **npm** available in the command line, then use the following routines:
 
 ```bash
 $ npm install   # Download dependencies
-$ npm run serve # Run development server
+$ npm start     # Run development server
 $ npm run build # Build files for production
 ```
+
+## :zap: Features Implementations
+
+- [x] List all available shares in [BM&FBOVESPA](http://www.b3.com.br/);
+- [x] Provide the user with R$10k to spend in the platform;
+- [x] Allow basic operations of buying & selling shares at their instant price;
+- [x] Stores user's wallet at browser's local storage;
+- [ ] Fix layout responsiveness on small screens;
+- [ ] Upgrade to Vue 3 and use Composition API;
