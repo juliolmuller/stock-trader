@@ -1,12 +1,5 @@
 import axios from 'axios'
 
-/**
- * URL for fetching resources
- *
- * @constant {String}
- */
-const API_URL = 'https://sheet.best/api/sheets/38ec96b3-7c75-4639-9d81-f138f44ba2f5'
-
 export default {
   namespaced: true,
 
@@ -28,12 +21,12 @@ export default {
 
   actions: {
     async fetchStocks({ commit }) {
-      const response = await axios(API_URL, {
+      const response = await axios(process.env.VUE_APP_API_URL, {
         transformResponse: [
           ...axios.defaults.transformResponse,
           (data) => data.map((stock) => {
             Object.keys(stock).forEach((key) => {
-              if (!Number.isNaN(stock[key])) {
+              if (!isNaN(stock[key])) {
                 stock[key] = Number(stock[key])
               }
             })
