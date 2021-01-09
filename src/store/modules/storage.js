@@ -18,6 +18,7 @@ export default {
     hasChanges(state) {
       const local = JSON.stringify(state.persistent)
       const session = JSON.stringify(state.temporary)
+
       return session !== local
     },
   },

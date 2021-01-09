@@ -12,6 +12,7 @@ export default {
     portfolioStocks(state, _getters, _rootState, rootGetters) {
       return state.portfolio.map((p) => {
         const stock = rootGetters['stocks/stocks'].find((s) => s.id === p.id)
+
         return {
           ...stock,
           quantity: p.quantity,
