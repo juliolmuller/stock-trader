@@ -1,44 +1,42 @@
 {
   "name": "stock-trader",
-  "version": "1.0.3",
+  "version": "1.0.4",
+  "private": true,
   "license": "MIT",
-  "author": {
-    "name": "Julio L. M",
-    "url": "https://juliolmuller.github.io/"
-  },
+  "author": "Julio L. Muller",
   "scripts": {
     "start": "vue-cli-service serve --open",
     "build": "vue-cli-service build --dest docs --modern",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "~0.21.1",
+    "core-js": "^3.8.2",
     "vue": "^2.6.12",
-    "vue-router": "^3.4.7",
-    "vuetify": "^2.3.15",
-    "vuex": "^3.5.1"
+    "vue-router": "^3.4.9",
+    "vuetify": "^2.4.2",
+    "vuex": "^3.6.0"
   },
   "devDependencies": {
-    "@lacussoft/eslint-config-standard": "^1.0.9",
-    "@vue/cli-plugin-babel": "^4.5.8",
-    "@vue/cli-plugin-eslint": "^4.5.8",
-    "@vue/cli-plugin-router": "^4.5.8",
-    "@vue/cli-plugin-vuex": "^4.5.8",
-    "@vue/cli-service": "^4.5.8",
-    "@vue/eslint-config-standard": "^5.1.2",
+    "@lacussoft/eslint-config": "1.0.1",
+    "@vue/cli-plugin-babel": "^4.5.10",
+    "@vue/cli-plugin-eslint": "^4.5.10",
+    "@vue/cli-plugin-router": "^4.5.10",
+    "@vue/cli-plugin-vuex": "^4.5.10",
+    "@vue/cli-service": "^4.5.10",
     "babel-eslint": "^10.1.0",
-    "core-js": "^3.6.5",
-    "eslint": "^6.8.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "sass": "^1.27.0",
-    "sass-loader": "^8.0.2",
-    "vue-cli-plugin-vuetify": "^2.0.7",
+    "eslint": "^7.17.0",
+    "eslint-plugin-vue": "^7.4.1",
+    "sass": "^1.32.2",
+    "sass-loader": "^10.1.0",
+    "vue-cli-plugin-vuetify": "^2.0.9",
     "vue-template-compiler": "^2.6.12",
     "vuetify-loader": "^1.6.0"
+  },
+  "babel": {
+    "presets": [
+      "@vue/cli-plugin-babel/preset"
+    ]
   },
   "eslintConfig": {
     "root": true,
@@ -47,18 +45,12 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended",
-      "@lacussoft/standard"
+      "@lacussoft"
     ],
     "parserOptions": {
       "parser": "babel-eslint"
     },
     "rules": {}
-  },
-  "babel": {
-    "presets": [
-      "@vue/cli-plugin-babel/preset"
-    ]
   },
   "browserslist": [
     "> 1%",
