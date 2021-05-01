@@ -7,7 +7,7 @@ import Stocks from '@/components/stocks/StocksPanel'
 Vue.use(VueRouter)
 
 export default new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   routes: [
     {
       path: '/',
