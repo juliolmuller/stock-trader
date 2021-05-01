@@ -25,7 +25,7 @@
 
 Application developed during [Cod3r's official Vue.js course](https://www.udemy.com/course/vue-js-completo/), on Udemy, in order to simulate a Stock Exchange trading platform. Fake money, bur real shares market value fluctuations.
 
-[Check out the application running!](https://juliolmuller.github.io/stock-trader/)
+[Check out the application running!](https://stocktrader.vercel.app/)
 
 ## :trophy: Lessons Learned
 
@@ -53,9 +53,11 @@ Make sure to have **Node.js 10+** installed in your machine and its **npm** avai
 
 ```bash
 $ npm install     # Download dependencies
-$ npm start       # Run development server
+$ npm run serve   # Run development server
 $ npm run build   # Build files for production
 ```
+
+Before running the application copy/rename file `.env.example` as `.env`. The existent value should work already, so no further configuration should be required. If you want to change the API to consume the stocks data, update the variable VUE_APP_API_URL that comes with the repository.
 
 ## :zap: Features Implementations
 
