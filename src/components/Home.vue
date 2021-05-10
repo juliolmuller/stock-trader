@@ -3,8 +3,10 @@
     <h1 class="display-2 text-center font-weight-bold mt-8 mb-6">
       Brinque de Negociar Ações em Tempo Real
     </h1>
+
     <alert-unsaved-changes />
     <alert-market-is-closed />
+
     <v-layout row wrap class="mt-12">
       <v-img
         v-if="$store.state.appLoading"
@@ -13,6 +15,7 @@
         max-width="10%"
         class="mx-auto"
       />
+
       <dashboard-card
         v-else
         v-for="card in cards"
@@ -30,6 +33,7 @@ import AlertUnsavedChanges from './AlertUnsavedChanges'
 import DashboardCard from './DashboardCard'
 
 export default {
+  name: 'Home',
 
   components: {
     AlertMarketIsClosed,

@@ -7,6 +7,7 @@
         <span class="subtitle-1 order-3">R${{ stock.price | number(2) }}/ação</span>
       </v-card-title>
     </v-card>
+
     <v-card>
       <v-container fill-height>
         <v-text-field
@@ -15,6 +16,7 @@
           :error="quantity !== 0 && !canSell"
           v-model.number="quantity"
         />
+
         <v-btn
           class="blue darken-3 white--text"
           :disabled="!canSell"
@@ -27,6 +29,14 @@
 
 <script>
 export default {
+  name: 'PortfolioCard',
+
+  props: {
+    stock: {
+      type: Object,
+      required: true,
+    },
+  },
 
   data: () => ({
     quantity: 0,
@@ -37,13 +47,6 @@ export default {
       return this.quantity > 0
         && Number.isInteger(this.quantity)
         && this.quantity <= this.stock.quantity
-    },
-  },
-
-  props: {
-    stock: {
-      type: Object,
-      required: true,
     },
   },
 
@@ -60,6 +63,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>

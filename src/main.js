@@ -7,7 +7,7 @@ import './filters'
 
 Vue.config.productionTip = false
 
-new Vue({
+new Vue({ // eslint-disable-line vue/require-name-property
   router,
   store,
   vuetify,

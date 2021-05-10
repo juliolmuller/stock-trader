@@ -16,11 +16,10 @@
 import { mapGetters } from 'vuex'
 
 export default {
+  name: 'AlertMarketIsClosed',
 
-  computed: mapGetters('storage', ['hasChanges']),
+  computed: {
+    ...mapGetters('storage', ['hasChanges']),
+  },
 }
 </script>
-
-<style>
-
-</style>

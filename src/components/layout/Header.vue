@@ -1,6 +1,5 @@
 <template>
   <v-app-bar app>
-
     <v-toolbar-title>
       <router-link to="/" class="v-toolbar__title">
         <span>Stock</span>
@@ -28,6 +27,7 @@
           R$ {{ $store.getters['portfolio/unappliedFunds'] | number(2) }}
         </span>
       </v-layout>
+
       <v-menu offset-y>
         <template v-slot:activator="{ on }">
           <v-btn text v-on="on">
@@ -51,7 +51,6 @@
         </v-list>
       </v-menu>
     </v-toolbar-items>
-
   </v-app-bar>
 </template>
 
@@ -59,6 +58,7 @@
 import { mapActions, mapMutations } from 'vuex'
 
 export default {
+  name: 'Header',
 
   data() {
     return {
@@ -87,9 +87,11 @@ export default {
   text-transform: uppercase;
   font-weight: 800;
 }
+
 .v-toolbar__title > span:last-child {
   font-weight: 300 !important;
 }
+
 .v-list-item__title:hover, .v-list-item__title:active {
   cursor: pointer;
 }

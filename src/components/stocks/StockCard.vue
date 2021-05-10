@@ -7,6 +7,7 @@
         <span class="subtitle-1 order-3">R${{ stock.price | number(2) }}/ação</span>
       </v-card-title>
     </v-card>
+
     <v-card>
       <v-container fill-height>
         <v-text-field
@@ -15,6 +16,7 @@
           :error="quantity !== 0 && !canBuy"
           v-model.number="quantity"
         />
+
         <v-btn
           class="green darken-3 white--text"
           :disabled="!canBuy"
@@ -27,6 +29,14 @@
 
 <script>
 export default {
+  name: 'StockCard',
+
+  props: {
+    stock: {
+      type: Object,
+      required: true,
+    },
+  },
 
   data: () => ({
     quantity: 0,
@@ -43,13 +53,6 @@ export default {
     },
   },
 
-  props: {
-    stock: {
-      type: Object,
-      required: true,
-    },
-  },
-
   methods: {
     buyStock() {
       const order = {
@@ -63,6 +66,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-</style>

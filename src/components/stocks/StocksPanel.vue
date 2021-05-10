@@ -4,7 +4,9 @@
       <h1 class="display-1 font-weight-bold">
         Mercado de Ações
       </h1>
+
       <v-spacer />
+
       <v-text-field
         style="max-width:300px;"
         append-icon="mdi-magnify"
@@ -13,8 +15,10 @@
         v-model="search"
       />
     </div>
+
     <alert-unsaved-changes />
     <alert-market-is-closed />
+
     <v-layout row wrap>
       <v-img
         v-if="$store.state.appLoading"
@@ -23,6 +27,7 @@
         max-width="10%"
         class="mx-auto"
       />
+
       <StockCard
         v-else
         v-for="stock in searchResult"
@@ -40,6 +45,7 @@ import AlertUnsavedChanges from '../AlertUnsavedChanges'
 import StockCard from './StockCard'
 
 export default {
+  name: 'StocksPanel',
 
   components: {
     AlertMarketIsClosed,

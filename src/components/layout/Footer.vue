@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  name: 'Footer',
 
   data: () => ({
     icons: [
@@ -30,6 +31,3 @@ export default {
   }),
 }
 </script>
-
-<style scoped>
-</style>
