@@ -1,43 +1,46 @@
 {
   "name": "stock-trader",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": true,
   "license": "MIT",
   "author": "Julio L. Muller",
   "scripts": {
     "postinstall": "node -e \"require('fs').existsSync('.env') || require('fs').copyFileSync('.env.example', '.env')\"",
+    "prepare": "husky install",
+    "commit": "git-cz",
     "dev": "vue-cli-service serve --open",
     "development": "npm run dev",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "~0.21.1",
-    "vue": "^2.6.12",
-    "vue-router": "^3.5.1",
-    "vuetify": "^2.4.11",
+    "axios": "~0.26.0",
+    "vue": "^2.6.14",
+    "vue-router": "^3.5.3",
+    "vuetify": "^2.6.3",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-eslint": "^4.5.13",
-    "@vue/cli-plugin-router": "^4.5.13",
-    "@vue/cli-plugin-vuex": "^4.5.13",
-    "@vue/cli-service": "^4.5.13",
-    "babel-eslint": "^10.1.0",
-    "core-js": "^3.12.0",
-    "eslint": "^7.26.0",
-    "eslint-config-lacussoft": "^2.0.1",
-    "eslint-plugin-vue": "^7.9.0",
-    "sass": "^1.32.12",
-    "sass-loader": "^10.1.1",
-    "vue-cli-plugin-vuetify": "^2.4.0",
-    "vue-template-compiler": "^2.6.12",
-    "vuetify-loader": "^1.7.2"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "@babel/core": "^7.17.5",
+    "@babel/eslint-parser": "^7.17.0",
+    "@commitlint/cli": "^16.2.1",
+    "@commitlint/config-conventional": "^16.2.1",
+    "@vue/cli-plugin-babel": "^5.0.1",
+    "@vue/cli-plugin-eslint": "^5.0.1",
+    "@vue/cli-plugin-router": "^5.0.1",
+    "@vue/cli-plugin-vuex": "^5.0.1",
+    "@vue/cli-service": "^5.0.1",
+    "commitizen": "^4.2.4",
+    "core-js": "^3.21.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.32.0",
+    "eslint-config-lacussoft": "^2.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
+    "sass": "^1.49.8",
+    "sass-loader": "^12.6.0",
+    "vue-cli-plugin-vuetify": "^2.4.6",
+    "vue-template-compiler": "^2.6.14",
+    "vuetify-loader": "^1.7.3"
+  }
 }

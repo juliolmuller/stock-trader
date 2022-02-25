@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?labelColor=000000&color=2E7D32&label=created%20at&message=Apr%202020" alt="Creation Date" />
+  <img src="https://img.shields.io/static/v1?labelColor=000000&color=2E7D32&label=created%20at&message=april%202020" alt="Creation Date" />
 
   <img src="https://img.shields.io/github/last-commit/juliolmuller/stock-trader?label=updated%20at&labelColor=000000&color=2E7D32" alt="Update Date" />
 
@@ -49,12 +49,12 @@ Application developed during [Cod3r's official Vue.js course](https://www.udemy.
 
 ## :hammer: Setting up the Environment
 
-Make sure to have **Node.js 10+** installed in your machine and its **npm** available in the command line, then use the following routines:
+Make sure to have **Node.js 14+** installed in your machine and **yarn** (or **npm**) available in the command line, then use the following routines:
 
 ```bash
-$ npm install     # Download dependencies
-$ npm run dev     # Run development server
-$ npm run build   # Build files for production
+$ yarn         # download dependencies
+$ yarn dev     # run development server
+$ yarn build   # build files for production
 ```
 
 Before running the application copy/rename file `.env.example` as `.env`. The existent value should work already, so no further configuration should be required. If you want to change the API to consume the stocks data, update the variable VUE_APP_API_URL that comes with the repository.

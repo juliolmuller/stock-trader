@@ -40,6 +40,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
 import AlertMarketIsClosed from '../AlertMarketIsClosed'
 import AlertUnsavedChanges from '../AlertUnsavedChanges'
 import StockCard from './StockCard'
