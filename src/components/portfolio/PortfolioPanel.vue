@@ -24,6 +24,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
+
 import AlertMarketIsClosed from '../AlertMarketIsClosed'
 import AlertUnsavedChanges from '../AlertUnsavedChanges'
 import PortfolioCard from './PortfolioCard'

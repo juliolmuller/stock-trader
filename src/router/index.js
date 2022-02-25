@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 import Home from '@/components/Home'
 import Portfolio from '@/components/portfolio/PortfolioPanel'
 import Stocks from '@/components/stocks/StocksPanel'
