@@ -1,6 +1,6 @@
 <template>
   <v-flex class="pr-5 pb-5" xs12 md6 lg4>
-    <v-card class="green darken-3 white--text">
+    <v-card :class="['darken-3 white--text', isNaN(stock.price) ? 'yellow' : 'green']">
       <v-card-title class="d-flex justify-space-between">
         <h3 class="subtitle-1 order-2">{{ stock.company }}</h3>
         <span class="subtitle-1 order-1">{{ stock.id }}</span>
@@ -48,6 +48,7 @@ export default {
     },
     canBuy() {
       return this.quantity > 0
+        && !isNaN(this.stock.price)
         && Number.isInteger(this.quantity)
         && this.quantity * this.stock.price <= this.availableFunds
     },
