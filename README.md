@@ -21,7 +21,7 @@
   <img src="https://img.shields.io/github/license/juliolmuller/stock-trader?labelColor=000000&color=2E7D32" alt="Project License" />
 </p>
 
-![Application snapshot](./.github/app-overview.jpg)
+![Application snapshot](https://user-images.githubusercontent.com/44725817/212591252-eedca227-b591-49c6-87a8-8603c210046b.png)
 
 Application developed during [Cod3r's official Vue.js course](https://www.udemy.com/course/vue-js-completo/), on Udemy, in order to simulate a Stock Exchange trading platform. Fake money, bur real shares market value fluctuations.
 
@@ -38,9 +38,9 @@ Application developed during [Cod3r's official Vue.js course](https://www.udemy.
 ## :rocket: Technologies & Resources
 
 **Frontend:**
-- Vue.js 2
+- Vue.js v2
 - Vuex (official Vue's state manger)
-- Vuetify 2
+- Vuetify v2
 - Axios (HTTP client)
 
 **Development:**
