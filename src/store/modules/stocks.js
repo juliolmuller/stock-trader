@@ -24,14 +24,20 @@ export default {
       const response = await axios(process.env.VUE_APP_API_URL, {
         transformResponse: [
           ...axios.defaults.transformResponse,
-          (data) => data.map((stock) => {
-            Object.keys(stock).forEach((key) => {
-              if (!isNaN(stock[key])) {
-                stock[key] = Number(stock[key])
+          (data) => {
+            // Data comes in TSV format
+            const [, ...rows] = data.split('\n')
+
+            return rows.map((row) => {
+              const [id, company, price] = row.split('\t')
+
+              return {
+                id,
+                company,
+                price: Number(price) || 0,
               }
             })
-            return stock
-          }),
+          },
         ],
       })
       commit('setStocks', response.data)
